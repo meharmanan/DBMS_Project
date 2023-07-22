@@ -97,56 +97,326 @@
             </html>
 
             <div class="btn_inventory">
-                <select name="" id="" style="font-size: x-large; border: white;">
-                    <option value="">Pending Orders</option>
-                    <option value="">Customer Details</option>
-                    <option value="">Recent Sales</option>
+                <select name="" id="tableType" onchange="toggleTable()"
+                    style="font-size: x-large; border: white">
+                    <option value="pendingOrders">Pending Orders</option>
+                    <option value="customerDetails">Customer Details</option>
+                    <option value="recentSales">Recent Sales</option>
                 </select>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td><button type="button" class="btn btn-success">Create New</button> <button type="button"
-                                    class="btn btn-primary">Update</button> <button type="button"
-                                    class="btn btn-danger">Delete</butto>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td><button type="button" class="btn btn-success">Create New</button> <button type="button"
-                                    class="btn btn-primary">Update</button> <button type="button"
-                                    class="btn btn-danger">Delete</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td><button type="button" class="btn btn-success">Create New</button> <button type="button"
-                                    class="btn btn-primary">Update</button> <button type="button"
-                                    class="btn btn-danger">Delete</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div id="pendingOrdersTable" class="table-Container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Customer ID</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Order Status</th>
+                                <th scope="col">Total Amount</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>ORD001</td>
+                                <td>John Doe</td>
+                                <td>CUST001</td>
+                                <td>2023-07-15</td>
+                                <td>Processing</td>
+                                <td>$450.00</td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</butto>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>ORD002</td>
+                                <td>Jane Smith</td>
+                                <td>CUST002</td>
+                                <td>2023-07-16</td>
+                                <td>Pending Payment</td>
+                                <td>$320.00</td>
+                                <td> <button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>ORD003</td>
+                                <td>Michael Johnson</td>
+                                <td>CUST003</td>
+                                <td>2023-07-17</td>
+                                <td>Shipped</td>
+                                <td>$720.20</td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>ORD004</td>
+                                <td>Emily Lee</td>
+                                <td>CUST004</td>
+                                <td>2023-07-18</td>
+                                <td>Processing</td>
+                                <td>$280</td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>ORD005</td>
+                                <td>Sarah Patel</td>
+                                <td>CUST005</td>
+                                <td>2023-07-21</td>
+                                <td>Pending Shipment</td>
+                                <td>$610.80</td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-success">Create New</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Pending Orders Table</p>
+                </div>
+
+                <div id="customerDetailsTable" class="table-Container" style="display: none;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Customer ID</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Contact Information</th>
+                                <th scope="col">Payment Information</th>
+                                <th scope="col">Purchase History</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>CUST001</td>
+                                <td>John Doe</td>
+                                <td>Phone: +1(555)123-4567 <br>
+                                    Email: john.doe@example.com
+                                </td>
+                                <td>Payment Method: Credit Card <br>
+                                    Credit Limit: $2000
+                                </td>
+                                <td>Order ID: ORD001 <br>
+                                    Order Date: 2023-07-15 <br>
+                                    Total Amount: $450.00 <br>
+                                    Status: Delivered
+                                </td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</butto>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>CUST002</td>
+                                <td>Jane smith</td>
+                                <td>Phone: +1(555)987-6543 <br>
+                                    Email: jane.smith@gmail.com
+                                </td>
+                                <td>Payment Method: PayPal <br>
+                                    Credit Limit: N/A <br>
+                                </td>
+                                <td>Order ID: ORD002 <br>
+                                    Order Date: 2023-07-16 <br>
+                                    Total Amount: $320.50 <br>
+                                    Status: Processing
+                                </td>
+                                <td> <button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>CUST003</td>
+                                <td>Michael Johnson</td>
+                                <td>Phone: +1(555)789-1234 <br>
+                                    Email: michael.johnson@gmail.com
+                                </td>
+                                <td>Payment Method: Bank Transfer <br>
+                                    Credit Limit: N/A
+                                </td>
+                                <td>Order ID: ORD003 <br>
+                                    Order Date: 2023-07-17 <br>
+                                    Total Amount: $720.20 <br>
+                                    Status: Shipped
+                                </td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>CUST004</td>
+                                <td>Emily Lea</td>
+                                <td>Phone: +1(555)246-1357 <br>
+                                    Email: emily.lee@gmail.com
+                                </td>
+                                <td>Payment Method: Cash on Delivery <br>
+                                    Credit Limit: N/A
+                                </td>
+                                <td>Order ID: ORD004 <br>
+                                    Order Date: 2023-07-18 <br>
+                                    Total Amount: $280.00 <br>
+                                    Status: Processing
+                                </td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>CUST005</td>
+                                <td>Sarah Patel</td>
+                                <td>Phone: +1(555)357-5793 <br>
+                                    Email: sarah.patel@gmail.com
+                                </td>
+                                <td>Payment Method: Credit Card <br>
+                                    Credit Limit: $1,500
+                                </td>
+                                <td>Order Id: ORD005 <br>
+                                    Order DAte: 2023-07-21 <br>
+                                    Total Amount: $610.80 <br>
+                                    Status: Pending Shipment
+                                </td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-success">Create New</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Customer Details Table</p>
+                </div>
+
+                <div id="recentSalesTable" class="table-Container" style="display: none;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Sales ID</th>
+                                <th scope="col">Sales Date</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Customer ID</th>
+                                <th scope="col">Sales Amount</th>
+                                <th scope="col">Sales Representative</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>SALE001</td>
+                                <td>2023-07-15</td>
+                                <td>John Doe</td>
+                                <td>CUST001</td>
+                                <td>$950.00</td>
+                                <td>Mark Johnson</td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</butto>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>SALE002</td>
+                                <td>2023-07-16</td>
+                                <td>Jane Smith</td>
+                                <td>CUST002</td>
+                                <td>$320.50</td>
+                                <td>Jessica Miller</td>
+                                <td> <button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>SALE003</td>
+                                <td>2023-07-17</td>
+                                <td>Michael Johnson</td>
+                                <td>CUST003</td>
+                                <td>$720.20</td>
+                                <td>Andrew Lee</td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>SALE004</td>
+                                <td>2023-07-18</td>
+                                <td>Emily Lee</td>
+                                <td>CUST004</td>
+                                <td>$280.00</td>
+                                <td>Sophia Patel</td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>SALE005</td>
+                                <td>2023-07-21</td>
+                                <td>Sarah Patel</td>
+                                <td>CUST005</td>
+                                <td>$610.80</td>
+                                <td>William Smith</td>
+                                <td><button type="button" class="btn btn-primary">Update</button> <button type="button"
+                                        class="btn btn-danger">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-success">Create New</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Recent Sales Table</p>
+                </div>
             </div>
 
             <div class="row">
-
     </section><!-- End Why Us Section -->
+
+    <script>
+        function toggleTable() {
+            const selectedTableType = document.getElementById("tableType").value;
+            console.log(selectedTableType);
+            const tableContainers = document.getElementsByClassName("table-Container");
+            console.log(tableContainers);
+
+            for (const tableContainer of tableContainers) {
+                if (tableContainer.id === selectedTableType + "Table") {
+                    tableContainer.style.display = "block";
+                } else {
+                    tableContainer.style.display = "none";
+                }
+            }
+        }
+    </script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
