@@ -34,7 +34,7 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="index DBMS.html">Home</a></li>
                     <li><a class="nav-link scrollto" href="inventory.html">Inventory</a></li>
-                    <li><a class="nav-link scrollto" href="payroll">Payroll</a></li>
+                    <li><a class="nav-link scrollto" href="payroll.html">Payroll</a></li>
                     <li><a class="nav-link scrollto " href="sales.html">Sales</a></li>
                     <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -98,53 +98,264 @@
                 </html>
 
                 <div class="btn_inventory">
-                    <select name="" id="" style="font-size: x-large; border: white;">
-                        <option value="">Employ Info</option>
-                        <option value="">Attendance Record</option>
-                        <option value="">Salary Details</option>
+                    <select name="" id="tableType" onchange="toggleTable()"
+                        style="font-size: x-large; border: white;">
+                        <option value="employeeInfo">Employ Info</option>
+                        <option value="attendanceRecord">Attendance Record</option>
+                        <option value="salaryDetails">Salary Details</option>
                     </select>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td><button type="button" class="btn btn-success">Create New</button> <button
-                                        type="button" class="btn btn-primary">Update</button> <button type="button"
-                                        class="btn btn-danger">Delete</butto>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td><button type="button" class="btn btn-success">Create New</button> <button
-                                        type="button" class="btn btn-primary">Update</button> <button type="button"
-                                        class="btn btn-danger">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                <td><button type="button" class="btn btn-success">Create New</button> <button
-                                        type="button" class="btn btn-primary">Update</button> <button type="button"
-                                        class="btn btn-danger">Delete</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div id="employeeInfoTable" class="table-Container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Employee ID</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>1001</td>
+                                    <td>Alice Johnson</td>
+                                    <td>Male</td>
+                                    <td>Research & Development</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</butto>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>2005</td>
+                                    <td>Michael Smith</td>
+                                    <td>Male</td>
+                                    <td>Sales & Marketing</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>3030</td>
+                                    <td>Emily Lee</td>
+                                    <td>Female</td>
+                                    <td>Human resources</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>4008</td>
+                                    <td>James Wang</td>
+                                    <td>Male</td>
+                                    <td>Production</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>5123</td>
+                                    <td>Sarah Patel</td>
+                                    <td>Female</td>
+                                    <td>Regularity Affairs</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td colspan="2"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Create New</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Employ Info Table</p>
+                    </div>
+
+                    <div id="attendanceRecordTable" class="table-Container" style="display: none;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Employee Id</th>
+                                    <th scope="col">Time In</th>
+                                    <th scope="col">Time Out</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>2023-07-15</td>
+                                    <td>1001</td>
+                                    <td>8:00 am</td>
+                                    <td>6:00 pm</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</butto>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>2023-07-15</td>
+                                    <td>2005</td>
+                                    <td>8:10 am</td>
+                                    <td>6:00 pm</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>2023-07-15</td>
+                                    <td>3030</td>
+                                    <td>8:00 am</td>
+                                    <td>5:45 pm</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>2023-07-15</td>
+                                    <td>4008</td>
+                                    <td>9:15 am</td>
+                                    <td>7:00 pm</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>2023-07-15</td>
+                                    <td>5123</td>
+                                    <td>8:35 am</td>
+                                    <td>7:15 pm</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td colspan="2"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Create New</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Attendance Record Table</p>
+                    </div>
+
+                    <div id="salaryDetailsTable" class="table-Container" style="display: none;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Employee ID</th>
+                                    <th scope="col">Basic Salary</th>
+                                    <th scope="col">Deduction</th>
+                                    <th scope="col">Bonus</th>
+                                    <th scope="col">Leaves</th>
+                                    <th scope="col">Net Salary</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>1001</td>
+                                    <td>$5,000</td>
+                                    <td>$500(Taxes, etc.)</td>
+                                    <td>$800</td>
+                                    <td>2 days(unpaid)</td>
+                                    <td>$5,300</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</butto>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>2005</td>
+                                    <td>$4,800</td>
+                                    <td>$550(Taxes, etc.)</td>
+                                    <td>$700</td>
+                                    <td>1 day(paid)</td>
+                                    <td>$4,950</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>3030</td>
+                                    <td>$6,000</td>
+                                    <td>$600(Taxes, etc.)</td>
+                                    <td>$900</td>
+                                    <td>3 days(paid)</td>
+                                    <td>$6,300</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>4008</td>
+                                    <td>$4,500</td>
+                                    <td>$400(Taxes, etc.)</td>
+                                    <td>$600</td>
+                                    <td>2 days(paid)</td>
+                                    <td>$4,700</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>5123</td>
+                                    <td>$5,500</td>
+                                    <td>$600(Taxes, etc.)</td>
+                                    <td>$750</td>
+                                    <td>1 day(unpaid)</td>
+                                    <td>$5,650</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td colspan="2"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Create New</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Salary Details Table</p>
+                    </div>
                 </div>
         </section><!-- End Services Section -->
+
+        <script>
+            function toggleTable() {
+                const selectedTableType = document.getElementById("tableType").value;
+                console.log(selectedTableType);
+                const tableContainers = document.getElementsByClassName("table-Container");
+                console.log(tableContainers);
+
+                for (const tableContainer of tableContainers) {
+                    if (tableContainer.id === selectedTableType + "Table") {
+                        tableContainer.style.display = "block";
+                    } else {
+                        tableContainer.style.display = "none";
+                    }
+                }
+            }
+        </script>
+
         <!-- Vendor JS Files -->
         <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
         <script src="assets/vendor/aos/aos.js"></script>
