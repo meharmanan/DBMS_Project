@@ -96,82 +96,261 @@
                 </head>
 
                 </html>
-
                 <div class="btn_inventory">
-                    <select name="" id="" style="font-size: x-large; border: white;">
-                        <option value="">Current Inventory</option>
-                        <option value="">Shipment Info</option>
-                        <option value="">Inventory History</option>
+                    <!-- <label for="tableType">Select Table Type:</label> -->
+                    <select name="" id="tableType" onchange="toggleTable()" style="font-size: x-large; border: white;">
+                        <option value="currentInventory">Current Inventory</option>
+                        <option value="shipmentInfo">Shipment Info</option>
+                        <option value="inventoryHistory">Inventory History</option>
                     </select>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td><button type="button" class="btn btn-success">Create New</button> <button
-                                        type="button" class="btn btn-primary">Update</button> <button type="button"
-                                        class="btn btn-danger">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td><button type="button" class="btn btn-success">Create New</button> <button
-                                        type="button" class="btn btn-primary">Update</button> <button type="button"
-                                        class="btn btn-danger">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                <td><button type="button" class="btn btn-success">Create New</button> <button
-                                        type="button" class="btn btn-primary">Update</button> <button type="button"
-                                        class="btn btn-danger">Delete</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div id="currentInventoryTable" class="table-Container">
+                        <table class="table table1">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Product ID</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>PainAway Tablets</td>
+                                    <td>PA1234</td>
+                                    <td>500 units</td>
+                                    <td>Sweden</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>ImmunoBoot Syrup</td>
+                                    <td>IB5678</td>
+                                    <td>350 bottles</td>
+                                    <td>Ukraine</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>AllerRelief Nasal Spray</td>
+                                    <td>AR9876</td>
+                                    <td>200 sprays</td>
+                                    <td>NewYork</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>DigestiCare Probiotics</td>
+                                    <td>DP4321</td>
+                                    <td>600 capsules</td>
+                                    <td>Sweden</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>SleepWell Capsules</td>
+                                    <td>SW2468</td>
+                                    <td>400 units</td>
+                                    <td>Pakistan</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td colspan="2"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Create New</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Current Inventory Table</p>
+                    </div>
+
+                    <div id="shipmentInfoTable" class="table-Container" style="display: none;">
+                        <table class="table table2">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Shipment Id</th>
+                                    <th scope="col">Product ID</th>
+                                    <th scope="col">Shipment Date</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>SH12345</td>
+                                    <td>PA1234</td>
+                                    <td>2023-07-15</td>
+                                    <td>500 units</td>
+                                    <td>Sweden</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>SH98765</td>
+                                    <td>IB5678</td>
+                                    <td>2023-07-18</td>
+                                    <td>350 bottles</td>
+                                    <td>Ukraine</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>SH45678</td>
+                                    <td>AR9876</td>
+                                    <td>2023-07-21</td>
+                                    <td>200 sprays</td>
+                                    <td>NewYork</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>SH67890</td>
+                                    <td>DP4321</td>
+                                    <td>2023-07-24</td>
+                                    <td>600 capsules</td>
+                                    <td>Sweden</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>SH4321</td>
+                                    <td>SW2468</td>
+                                    <td>2023-07-25</td>
+                                    <td>400 units</td>
+                                    <td>Pakistan</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td colspan="2"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Create New</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Shipment Info Table</p>
+                    </div>
+
+                    <div id="inventoryHistoryTable" class="table-Container" style="display: none;">
+                        <table class="table table3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Product ID</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>PainAway Tablets</td>
+                                    <td>PA1234</td>
+                                    <td>500 Units</td>
+                                    <td>2023-07-15</td>
+                                    <td>Sweden</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>ImmunoBoot Syrup</td>
+                                    <td>IB5678</td>
+                                    <td>350 bottles</td>
+                                    <td>2023-07-18</td>
+                                    <td>Ukraine</td>
+                                    <td> <button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>AllerRelief Nasal Spray</td>
+                                    <td>AR9876</td>
+                                    <td>200 sprays</td>
+                                    <td>2023-07-21</td>
+                                    <td>NewYork</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>DigestiCare Probiotics</td>
+                                    <td>DP4321</td>
+                                    <td>600 capsules</td>
+                                    <td>2023-07-24</td>
+                                    <td>Sweden</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>SleepWell Capsules</td>
+                                    <td>SW2468</td>
+                                    <td>400 units</td>
+                                    <td>2023-07-25</td>
+                                    <td>Pakistan</td>
+                                    <td><button type="button" class="btn btn-primary">Update</button> <button
+                                            type="button" class="btn btn-danger">Delete</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td colspan="2"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Create New</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Inventory History Table</p>
+                    </div>
                 </div>
     </section><!-- End About Section -->
 
-    <!-- <div class="btn_inventory">
-    <div class="btn-group">
-      <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-        aria-expanded="false" style="font-size: xx-large;">
-        Inventory
-      </button>
-      <ul class="dropdown-menu">
-        <h1 style="font-size: large;">Current Inventory</h1>
-        <h1 style="font-size: large;">Inventory Information</h1>
-        <h1 style="font-size: large;">Inventory History</h1>
-      </ul>
-    </div>
-  </div> -->
-    <!-- <div class="dropdown-center">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Centered dropdown
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Action two</a></li>
-      <li><a class="dropdown-item" href="#">Action three</a></li>
-    </ul>
-  </div> -->
+    <script>
+        function toggleTable() {
+            const selectedTableType = document.getElementById("tableType").value;
+            console.log(selectedTableType);
+            const tableContainers = document.getElementsByClassName("table-Container");
+            console.log(tableContainers);
 
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+            for (const tableContainer of tableContainers) {
+                if (tableContainer.id === selectedTableType + "Table") {
+                    tableContainer.style.display = "block";
+                } else {
+                    tableContainer.style.display = "none";
+                }
+            }
+        }
+    </script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
